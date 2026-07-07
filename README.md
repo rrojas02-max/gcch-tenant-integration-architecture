@@ -11,3 +11,5 @@ Reference architecture for cross-tenant integration in Microsoft 365 GCC High du
 ## Overview
 
 This repository documents a reference architecture for integrating two Microsoft 365 GCC High tenants while keeping both environments separate.
+
+![Repository structure](02-architecture/diagrams/repo-structure.png)
