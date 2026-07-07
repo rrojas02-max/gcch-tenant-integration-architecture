@@ -10,7 +10,7 @@ ADRs are used to explain the reasoning behind important architecture choices, in
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -78,7 +78,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -150,7 +150,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -231,7 +231,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -296,7 +296,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -369,7 +369,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -439,7 +439,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
@@ -512,7 +512,7 @@ Trade-offs:
 
 ### Status
 
-Accepted
+Under review
 
 ### Context
 
