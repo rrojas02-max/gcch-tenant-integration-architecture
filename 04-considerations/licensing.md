@@ -47,7 +47,7 @@ Recommended for:
 - Users accessing sensitive workloads
 - Users requiring advanced security, compliance, audit, and endpoint controls
 
-Microsoft’s government plan comparison lists Microsoft 365 Government G5 as including stronger identity, security, endpoint, and compliance capabilities such as Entra ID Plan 2, Defender for Endpoint Plan 2, Purview Information Protection Plan 2, Audit Premium, and eDiscovery Premium. 【1-99019d】
+Microsoft’s government plan comparison lists Microsoft 365 Government G5 as including stronger identity, security, endpoint, and compliance capabilities such as Entra ID Plan 2, Defender for Endpoint Plan 2, Purview Information Protection Plan 2, Audit Premium, and eDiscovery Premium.
 
 ### Microsoft 365 Government G3
 
@@ -59,7 +59,7 @@ Recommended for:
 - Users who need Microsoft 365 desktop apps and core services
 - Users who do not need advanced technical or administrative access
 
-Microsoft’s government plan comparison lists Microsoft 365 Government G3 as a government productivity plan with Microsoft 365 apps and services, Entra ID Plan 1, Intune Plan 1, and baseline security/compliance capabilities. 【1-99019d】
+Microsoft’s government plan comparison lists Microsoft 365 Government G3 as a government productivity plan with Microsoft 365 apps and services, Entra ID Plan 1, Intune Plan 1, and baseline security/compliance capabilities.
 
 ### Microsoft 365 Government F3 or Frontline Equivalent
 
@@ -80,7 +80,7 @@ Recommended when the design requires:
 - Cross-tenant user synchronization
 - Standard identity-based access controls
 
-Microsoft documentation states that cross-tenant user synchronization requires Microsoft Entra ID P1 or P2 in the source tenant. 【2-8a20f0】 Microsoft Entra licensing documentation also lists Entra ID P1 as available standalone and included in several enterprise Microsoft 365 offers. 【3-4a3100】
+Microsoft documentation states that cross-tenant user synchronization requires Microsoft Entra ID P1 or P2 in the source tenant. 【2-8a20f0】 Microsoft Entra licensing documentation also lists Entra ID P1 as available standalone and included in several enterprise Microsoft 365 offers.
 
 ### Microsoft Entra ID P2
 
@@ -91,7 +91,7 @@ Recommended when the design requires:
 - Risk-based identity controls
 - Stronger controls for administrators and high-risk users
 
-Microsoft Entra licensing documentation lists Entra ID P2 as a higher identity licensing option available standalone and included with Microsoft 365 E5 and other security bundles. 【3-4a3100】
+Microsoft Entra licensing documentation lists Entra ID P2 as a higher identity licensing option available standalone and included with Microsoft 365 E5 and other security bundles. 
 
 ### Microsoft Entra ID Governance or Microsoft Entra Suite
 
@@ -102,7 +102,7 @@ Recommended when the design requires:
 - Entitlement management
 - Stronger identity lifecycle governance
 
-Microsoft documentation states that cross-tenant group synchronization requires Microsoft Entra ID Governance or Microsoft Entra Suite. 【2-8a20f0】
+Microsoft documentation states that cross-tenant group synchronization requires Microsoft Entra ID Governance or Microsoft Entra Suite.
 
 ### Zero Trust VPN Licensing
 
