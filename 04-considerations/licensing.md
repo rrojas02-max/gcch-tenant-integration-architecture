@@ -80,7 +80,7 @@ Recommended when the design requires:
 - Cross-tenant user synchronization
 - Standard identity-based access controls
 
-Microsoft documentation states that cross-tenant user synchronization requires Microsoft Entra ID P1 or P2 in the source tenant. 【2-8a20f0】 Microsoft Entra licensing documentation also lists Entra ID P1 as available standalone and included in several enterprise Microsoft 365 offers.
+Microsoft documentation states that cross-tenant user synchronization requires Microsoft Entra ID P1 or P2 in the source tenant.  Microsoft Entra licensing documentation also lists Entra ID P1 as available standalone and included in several enterprise Microsoft 365 offers.
 
 ### Microsoft Entra ID P2
 
