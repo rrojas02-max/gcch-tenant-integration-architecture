@@ -136,4 +136,142 @@ This workstream handles access to:
 
 ---
 
-## Resource Type Decision 
+## Resource Type Decision Matrix
+
+| Resource Type | Preferred Pattern | Fallback / Additional Consideration | Notes |
+|---|---|---|---|
+| Microsoft Teams collaboration | B2B Direct Connect or B2B Collaboration | Multi-Tenant Organization if long-term coexistence is expected | Validate GCC High availability and tenant settings. |
+| SharePoint Online / OneDrive access | B2B Collaboration, Cross-Tenant Access Settings, access governance | Cross-Tenant Synchronization for larger user populations | Scope access to approved sites and groups. |
+| Exchange Online / Microsoft 365 services | User migration or onboarding to primary tenant | Coexistence access patterns during transition | Primary tenant becomes the strategic Microsoft 365 home. |
+| Back-office Microsoft 365 users | Move toward primary tenant | Phased migration waves | Align identity, licensing, device, and support model. |
+| Engineering applications | Approved VPN / Zero Trust remote access path | Application-specific discovery | Do not assume Microsoft 365 B2B solves engineering access. |
+| DevOps systems | Approved VPN / Zero Trust remote access path | Validate identity and protocol requirements | Keep separate from Microsoft 365 collaboration design. |
+| OpenShift / private cloud resources | Approved VPN / Zero Trust remote access path | Workload-level access review | Confirm access groups, device posture, and monitoring. |
+| Virtual machines | SSH / RDP through approved remote access path | Segmentation and approval workflow | Access should be limited to approved users. |
+| GPU-based compute resources | Approved remote access path | No immediate Azure migration unless separate business case | Preserve operational model and data locality. |
+| Large engineering datasets | Keep in acquired environment | Access through approved engineering access path | Avoid unnecessary data movement. |
+| LDAP-dependent services | Discovery and controlled legacy handling | Separate AD-based pattern only if required | Do not assume cloud identity automatically satisfies LDAP. |
+| Internal web applications | Not confirmed as part of current scope | Evaluate later only if discovered | Do not list as a confirmed requirement. |
+| Traditional file shares | Not a primary driver in this scenario | Evaluate later only if discovered | Customer indicated file services moved to SharePoint. |
+
+---
+
+## Design Decision Guidance
+
+Use this decision guidance during architecture workshops.
+
+### If the resource is Microsoft 365 cloud-based
+
+Use Microsoft Entra and Microsoft 365 cross-tenant collaboration patterns.
+
+Start with:
+
+- Cross-Tenant Access Settings
+- B2B Collaboration
+- B2B Direct Connect for Teams shared channels
+- Cross-Tenant Synchronization for scoped provisioning
+- Conditional Access
+- Access governance
+- Access reviews where available
+
+### If the resource is part of the acquired engineering environment
+
+Use the approved VPN / Zero Trust remote access path.
+
+Validate:
+
+- Which users need access
+- Which engineering systems are in scope
+- Whether access is SSH, RDP, web-based, LDAP-dependent, or another protocol
+- Which devices are allowed
+- Which tenant owns the device
+- Whether MFA and device compliance are required
+- How access is logged and reviewed
+- Who owns support escalation
+
+### If the resource depends on LDAP
+
+Treat it as a special case.
+
+Important questions:
+
+- Which service still depends on LDAP?
+- Is LDAP used only for authentication or also for authorization/group lookup?
+- Does the service require an on-premises AD user object?
+- Can the existing SSO model be used?
+- Does the remote access platform integrate with the required identity source?
+- What is the lifecycle process when a user leaves or changes role?
+
+### If the resource requires SSH or RDP
+
+Use the approved remote access path with strict controls.
+
+Required controls:
+
+- Approved user group
+- MFA
+- Device posture or compliant device requirements where applicable
+- Segmentation
+- Logging
+- Monitoring
+- Clear ownership
+- Access review
+
+### If the resource is an internal web application
+
+Do not assume it is in scope.
+
+Only evaluate internal web application publishing options if discovery confirms that internal HTTP/HTTPS applications require cross-tenant access.
+
+Potential options may include:
+
+- Approved remote access path
+- Application publishing
+- Modern authentication integration
+- Other customer-approved access pattern
+
+### If the resource is GPU-heavy or data-heavy
+
+Do not position immediate Azure migration as the default.
+
+Recommended approach:
+
+- Keep the workload in the acquired engineering environment.
+- Provide secure controlled access.
+- Document the reason the workload remains on-premises.
+- Revisit migration only if the customer creates a separate modernization or cloud business case.
+
+---
+
+## Key Architecture Principle
+
+Cloud collaboration and on-premises engineering access should not be treated as the same problem.
+
+Microsoft 365 cloud collaboration can be addressed with Microsoft Entra B2B Collaboration, B2B Direct Connect, Cross-Tenant Access Settings, Cross-Tenant Synchronization, Conditional Access, and governance.
+
+On-premises engineering access depends on the customer’s approved remote access platform, engineering workload requirements, SSH/RDP needs, LDAP dependencies, device posture, and operational ownership.
+
+The architecture must avoid assuming that a Microsoft 365 cross-tenant identity pattern automatically grants access to on-premises engineering systems.
+
+---
+
+## Final Recommendation
+
+For this scenario, the recommended design is a phased dual-workstream architecture.
+
+1. Establish secure tenant-to-tenant Microsoft 365 collaboration.
+2. Validate Cross-Tenant Access Settings between the GCC High tenants.
+3. Define whether MFA, compliant device, and hybrid-joined device claims can be trusted across tenants.
+4. Review existing B2B Collaboration before adding new cross-tenant patterns.
+5. Evaluate B2B Direct Connect for Teams shared channel collaboration.
+6. Evaluate Cross-Tenant Synchronization for scoped user provisioning and lifecycle management.
+7. Move back-office Microsoft 365 users and services toward the primary tenant in phases.
+8. Keep engineering and DevOps workloads in the acquired environment.
+9. Use the approved VPN / Zero Trust remote access approach for access to retained engineering resources.
+10. Validate access to engineering applications, DevOps systems, OpenShift/private cloud resources, virtual machines, GPU resources, large datasets, SSH/RDP endpoints, and remaining LDAP-dependent services.
+11. Avoid broad access to the acquired environment when scoped access to approved engineering resources is sufficient.
+12. Avoid immediate Azure migration of GPU-heavy, data-heavy, or engineering-specific workloads unless a separate business case is created.
+13. Maintain clear ownership for identity, device management, Conditional Access, remote access, monitoring, and support.
+14. Revisit the architecture as GCC High feature availability and business requirements evolve.
+
+This approach allows Microsoft 365 collaboration and back-office migration to move forward while preserving the acquired engineering environment, protecting compliance boundaries, and avoiding disruption to critical engineering and DevOps operations.
