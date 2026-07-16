@@ -53,44 +53,5 @@ The target architecture is designed to:
 
 ## High-Level Architecture
 
-```text
-+----------------------------------------------------+
-| Tenant A                                           |
-| Microsoft 365 GCC High                             |
-| Cloud-only identity                                |
-|                                                    |
-| Users                                              |
-| Devices                                            |
-| Microsoft Entra ID                                 |
-+---------------------------+------------------------+
-                            |
-                            |
-                            | Cross-tenant access
-                            | B2B collaboration
-                            | Cross-tenant settings
-                            | Conditional Access
-                            | Optional user sync
-                            |
-+---------------------------v------------------------+
-| Tenant B                                           |
-| Microsoft 365 GCC High                             |
-| Hybrid identity                                    |
-|                                                    |
-| Microsoft Entra ID                                 |
-| Microsoft 365 Cloud Resources                      |
-| Teams / SharePoint / OneDrive / Cloud Apps         |
-+---------------------------+------------------------+
-                            |
-                            | Existing directory sync
-                            |
-+---------------------------v------------------------+
-| Tenant B On-Premises Environment                   |
-|                                                    |
-| Active Directory Domain Services                   |
-| File Shares                                        |
-| Internal Web Applications                          |
-| Legacy Line-of-Business Applications               |
-| Domain-Joined Servers                              |
-+----------------------------------------------------+
+<img width="2591" height="2268" alt="image" src="https://github.com/user-attachments/assets/6d9ef227-abce-4761-bcb2-f132e662b8e0" />
 
-![Repository structure](02-architecture/diagrams/repo-structure.png)
